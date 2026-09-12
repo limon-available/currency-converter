@@ -1,0 +1,289 @@
+.app {
+  min-height: 100vh;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.converter-card {
+  width: min(760px, 100%);
+  background: white;
+  border: 1px solid #d9d9d9;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.header {
+  margin-bottom: 32px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.header h1 {
+  margin: 0 0 10px;
+  font-size: 36px;
+}
+
+.header p:last-child {
+  margin: 0;
+  color: #555;
+  line-height: 1.6;
+}
+
+.converter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+label {
+  font-weight: 700;
+}
+
+input,
+select {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 12px;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  background: white;
+  font: inherit;
+}
+
+input:focus-visible,
+select:focus-visible,
+button:focus-visible {
+  outline: 3px solid #005fcc;
+  outline-offset: 3px;
+}
+
+.currency-row {
+  display: flex;
+  align-items: end;
+  gap: 16px;
+}
+
+.arrow {
+  padding-bottom: 12px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+button {
+  min-height: 46px;
+  padding: 10px 18px;
+  border: 1px solid #222;
+  border-radius: 8px;
+  background: #222;
+  color: white;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  opacity: 0.85;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.convert-button {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.result-area {
+  min-height: 150px;
+  margin-top: 28px;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+}
+
+.state {
+  width: 100%;
+}
+
+.state h2 {
+  margin: 0 0 8px;
+  font-size: 22px;
+}
+
+.state p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.idle {
+  background: #f7f7f7;
+}
+
+.loading {
+  background: #f2f7ff;
+}
+
+.error {
+  background: #fff2f2;
+  border-color: #d88;
+}
+
+.empty {
+  background: #fffaf0;
+  border-color: #d8b86a;
+}
+
+.success {
+  background: #f1f9f1;
+  border-color: #8abb8a;
+}
+
+.loading-state,
+.error-state,
+.empty-state {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border: 3px solid #ccc;
+  border-top-color: #222;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.state-icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  font-weight: 800;
+}
+
+.state-note {
+  margin-top: 10px !important;
+  font-size: 14px;
+}
+
+.result-label {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.success-state h2 {
+  font-size: 28px;
+  margin: 8px 0;
+}
+
+.review-tools {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #ddd;
+}
+
+.review-tools h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+
+.review-tools p {
+  color: #555;
+  line-height: 1.5;
+}
+
+.test-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.test-buttons button {
+  background: white;
+  color: #222;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 600px) {
+  .app {
+    padding: 20px 12px;
+  }
+
+  .converter-card {
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .header h1 {
+    font-size: 30px;
+  }
+
+  .currency-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .arrow {
+    display: none;
+  }
+
+  .test-buttons {
+    flex-direction: column;
+  }
+
+  .test-buttons button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 320px) {
+  .app {
+    padding: 12px 8px;
+  }
+
+  .converter-card {
+    padding: 16px;
+  }
+
+  .header h1 {
+    font-size: 26px;
+  }
+
+  .result-area {
+    padding: 16px;
+  }
+}
