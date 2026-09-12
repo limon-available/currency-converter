@@ -1,16 +1,83 @@
-# React + Vite
+# Currency Converter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based currency converter that fetches live exchange-rate data from a public API.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Convert between supported currencies
+- Fetch live exchange rates
+- Clear loading state while fetching data
+- Clear error state when the request fails
+- Empty state when the requested currency pair is not covered by the data source
+- Reviewer controls to demonstrate required application states
+- Responsive layout for desktop and mobile screens
 
-## React Compiler
+## Application States
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The application demonstrates four main states:
 
-## Expanding the ESLint configuration
+### 1. Loading State
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Click `Convert` or `Test Live Data`.
+
+The application displays a loading message while exchange-rate data is being fetched.
+
+### 2. Success State
+
+Enter an amount, select supported currencies, and click `Convert`.
+
+For example:
+
+`5 USD → CAD`
+
+The application displays the converted amount and exchange rate using live data.
+
+### 3. Error State
+
+Click `Simulate Error` in the `Reviewer State Tests` section.
+
+The application displays:
+
+> Unable to load exchange rates. Please check your connection and try again.
+
+This allows the reviewer to verify the error state without modifying the source code.
+
+### 4. Empty State
+
+Click `Test Unsupported Pair`.
+
+The application successfully requests exchange-rate data and then checks for a currency code that is not present in the returned data.
+
+The application displays a message explaining that the requested currency pair is not covered by the data source.
+
+This is treated as a data gap rather than a request failure.
+
+## Reviewer Testing
+
+The required states can be demonstrated without changing the source code.
+
+| State | How to test |
+|---|---|
+| Loading | Click `Convert` or `Test Live Data` |
+| Success | Enter an amount and convert supported currencies |
+| Error | Click `Simulate Error` |
+| Empty | Click `Test Unsupported Pair` |
+
+## API
+
+Exchange rates are fetched from the ExchangeRate-API Open Access endpoint.
+
+## Tech Stack
+
+- React
+- Vite
+- JavaScript
+- CSS
+- ExchangeRate-API
+
+## Running Locally
+
+Clone the repository and install dependencies:
+
+```bash
+npm install
